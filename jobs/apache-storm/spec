@@ -1,0 +1,6 @@
+---
+name: apache-storm
+packages: []
+templates:
+  ignoreme: ignoreme
+properties: {}

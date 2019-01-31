@@ -1,0 +1,7 @@
+---
+- type: replace
+  path: /releases/name=apache-storm
+  value:
+    name: apache-storm
+    version: create
+    url: file://.

@@ -1,0 +1,6 @@
+---
+blobstore:
+  provider: s3
+  options:
+    bucket_name: apache-storm-boshrelease
+final_name: apache-storm
