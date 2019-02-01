@@ -1,6 +1,6 @@
-# BOSH release for apache-storm
+# BOSH release for Apache Storm
 
-This BOSH release and deployment manifest deploy a cluster of apache-storm.
+This BOSH release and deployment manifest deploy a cluster of Apache Storm.
 
 ## Usage
 
@@ -26,4 +26,12 @@ cd apache-storm-boshrelease
 git pull
 cd -
 bosh deploy apache-storm-boshrelease/manifests/apache-storm.yml
+```
+
+### Deploy Topologies
+
+There is a simple example of an errand that will deploy the `ExclamationTopology` sample topology to the Storm cluster. After the cluster has been deployed simply run the following command:
+
+```plain
+bosh run-errand deploy-topologies
 ```
