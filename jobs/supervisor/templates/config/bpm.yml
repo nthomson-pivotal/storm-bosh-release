@@ -1,0 +1,5 @@
+processes:
+  - name: supervisor
+    executable: /var/vcap/jobs/supervisor/bin/ctl
+    args: [start]
+    persistent_disk: true

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+source /var/vcap/packages/openjdk-8/bosh/runtime.env
+source /var/vcap/packages/python-2.7/bosh/runtime.env
+
+export PYTHON=/var/vcap/packages/python-2.7/bin/python
+export PATH=$PATH:/var/vcap/packages/apache-storm/bin:$PATH
+
+case $1 in
+
+  start)
+    exec /var/vcap/packages/apache-storm/bin/storm nimbus --config /var/vcap/jobs/nimbus/config/storm.yaml
+    ;;
+
+  *)
+    echo "Usage: $0 {start|status|cli}"
+    exit 1
+    ;;
+
+esac
+exit 0

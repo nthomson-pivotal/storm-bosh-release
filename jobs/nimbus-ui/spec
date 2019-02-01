@@ -1,0 +1,17 @@
+---
+name: nimbus-ui
+packages:
+- openjdk-8
+- python-2.7
+- apache-storm
+
+templates:
+  bin/ctl: bin/ctl
+  config/bpm.yml: config/bpm.yml
+  config/storm.yaml: config/storm.yaml
+
+consumes:
+- name: zookeeper
+  type: zookeeper
+
+properties: {}

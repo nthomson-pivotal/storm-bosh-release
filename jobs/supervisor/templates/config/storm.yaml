@@ -1,0 +1,13 @@
+storm.log.dir: "/var/vcap/sys/log/supervisor"
+storm.local.dir: "/var/vcap/store/supervisor"
+
+<% zks = link('zookeeper') %>
+
+storm.zookeeper.servers:
+<% zks.instances.each do |instance| %>
+    - "<%= instance.address %>"
+<% end %>
+
+<% nimbus = link('nimbus') %>
+
+nimbus.seeds : [<%= nimbus.instances.map { |instance| "\"#{instance.address}\"" }.join(",") %>]

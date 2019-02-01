@@ -1,0 +1,20 @@
+---
+name: supervisor
+packages:
+- openjdk-8
+- python-2.7
+- apache-storm
+
+templates:
+  bin/pre-start: bin/pre-start
+  bin/ctl: bin/ctl
+  config/bpm.yml: config/bpm.yml
+  config/storm.yaml: config/storm.yaml
+
+consumes:
+- name: zookeeper
+  type: zookeeper
+- name: nimbus
+  type: nimbus
+
+properties: {}

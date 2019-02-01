@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+export STORE_DIR=/var/vcap/store/nimbus
+
+mkdir -p $STORE_DIR
+chown vcap:vcap $STORE_DIR
+chmod 777 $STORE_DIR

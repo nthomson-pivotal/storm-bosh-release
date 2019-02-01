@@ -1,0 +1,5 @@
+processes:
+  - name: nimbus
+    executable: /var/vcap/jobs/nimbus/bin/ctl
+    args: [start]
+    persistent_disk: true

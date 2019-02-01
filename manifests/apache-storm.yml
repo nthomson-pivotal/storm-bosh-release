@@ -8,14 +8,48 @@ addons:
     release: bpm
 
 instance_groups:
-- name: apache-storm
+- name: zookeeper
+  azs: [z1, z2, z3]
+  instances: 1
+  jobs:
+  - name: zookeeper
+    release: zookeeper
+    properties: {}
+  - name: status
+    release: zookeeper
+    properties: {}
+  vm_resources:
+    cpu: 1
+    ram: 1024
+    ephemeral_disk_size: 10240
+  stemcell: default
+  persistent_disk: 10240
+  networks:
+  - name: default
+- name: nimbus
   azs: [z1, z2, z3]
   instances: 1
   vm_type: default
   stemcell: default
+  persistent_disk: 10240
   networks: [{name: default}]
   jobs:
-  - name: apache-storm
+  - name: nimbus
+    release: apache-storm
+    properties: {}
+  - name: nimbus-ui
+    release: apache-storm
+    properties: {}
+
+- name: supervisor
+  azs: [z1, z2, z3]
+  instances: 1
+  vm_type: default
+  stemcell: default
+  persistent_disk: 10240
+  networks: [{name: default}]
+  jobs:
+  - name: supervisor
     release: apache-storm
     properties: {}
 
@@ -41,3 +75,6 @@ releases:
   version: create  # TODO: update after first final release
   url: .           # TODO: update after first final release
   # sha1:            TODO: update after first final release
+- name: zookeeper
+  version: 0.0.9
+  url: git+https://github.com/cppforlife/zookeeper-release

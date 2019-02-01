@@ -1,0 +1,5 @@
+check process nimbus-ui
+  with pidfile /var/vcap/sys/run/bpm/nimbus-ui/nimbus-ui.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start nimbus-ui"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop nimbus-ui"
+  group vcap

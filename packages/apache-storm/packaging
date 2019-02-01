@@ -1,0 +1,5 @@
+set -e
+
+tar xzvf ${BOSH_COMPILE_TARGET}/apache-storm/apache-storm-1.2.2.tar.gz
+
+cp -a ${BOSH_COMPILE_TARGET}/apache-storm-1.2.2/* ${BOSH_INSTALL_TARGET}/

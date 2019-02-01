@@ -1,0 +1,5 @@
+check process supervisor
+  with pidfile /var/vcap/sys/run/bpm/supervisor/supervisor.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start supervisor"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop supervisor"
+  group vcap

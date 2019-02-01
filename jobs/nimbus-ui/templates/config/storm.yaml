@@ -1,0 +1,8 @@
+storm.log.dir: "/var/vcap/sys/log/nimbus-ui"
+
+<% zks = link('zookeeper') %>
+
+storm.zookeeper.servers:
+<% zks.instances.each do |instance| %>
+    - "<%= instance.address %>"
+<% end %>
