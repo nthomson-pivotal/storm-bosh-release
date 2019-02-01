@@ -8,6 +8,7 @@ packages:
 templates:
   bin/pre-start: bin/pre-start
   bin/ctl: bin/ctl
+  bin/deploy-topology: bin/deploy-topology
   config/bpm.yml: config/bpm.yml
   config/storm.yaml: config/storm.yaml
 

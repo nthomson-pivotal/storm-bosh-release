@@ -1,0 +1,8 @@
+---
+name: deploy-topologies
+packages: []
+
+templates:
+  run: bin/run
+
+properties: {}

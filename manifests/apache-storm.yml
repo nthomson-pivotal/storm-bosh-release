@@ -40,6 +40,9 @@ instance_groups:
   - name: nimbus-ui
     release: apache-storm
     properties: {}
+  - name: deploy-topologies
+    release: apache-storm
+    properties: {}
 
 - name: supervisor
   azs: [z1, z2, z3]

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source /var/vcap/packages/openjdk-8/bosh/runtime.env
+source /var/vcap/packages/python-2.7/bosh/runtime.env
+
+export PYTHON=/var/vcap/packages/python-2.7/bin/python
+
+timestamp=$(date +%s)
+
+wget -q http://central.maven.org/maven2/org/apache/storm/storm-starter/1.2.2/storm-starter-1.2.2.jar
+
+exec /var/vcap/packages/apache-storm/bin/storm jar storm-starter-1.2.2.jar \
+  org.apache.storm.starter.ExclamationTopology production-topology-$timestamp \ 
+  --config /var/vcap/jobs/nimbus/config/storm.yaml
+
+rm -f storm-starter-1.2.2.jar
